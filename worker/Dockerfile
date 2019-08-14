@@ -13,8 +13,8 @@ RUN ["mvn", "dependency:resolve"]
 RUN ["mvn", "verify"]
 
 # Adding resource for doing Yourkit java profiling
-RUN cp YourKit-JavaProfiler-2019.8-docker.zip /tmp/ && \
-  unzip /tmp/YourKit-JavaProfiler-2019.8-docker.zip -d /usr/local && \
+ADD YourKit-JavaProfiler-2019.8-docker.zip /tmp/
+RUN unzip /tmp/YourKit-JavaProfiler-2019.8-docker.zip -d /usr/local && \
   rm /tmp/YourKit-JavaProfiler-2019.8-docker.zip
 
 # Adding source, compile and package into a fat jar
