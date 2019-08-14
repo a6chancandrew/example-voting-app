@@ -12,6 +12,11 @@ ADD pom.xml /code/pom.xml
 RUN ["mvn", "dependency:resolve"]
 RUN ["mvn", "verify"]
 
+# Adding resource for doing Yourkit java profiling
+RUN wget https://www.yourkit.com/download/docker/YourKit-JavaProfiler-2019.8-docker.zip -P /tmp/ && \
+  unzip /tmp/YourKit-JavaProfiler-2019.8-docker.zip -d /usr/local && \
+  rm /tmp/YourKit-JavaProfiler-2019.8-docker.zip
+
 # Adding source, compile and package into a fat jar
 ADD src/main /code/src/main
 RUN ["mvn", "package"]
