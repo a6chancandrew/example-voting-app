@@ -27,4 +27,4 @@ EXPOSE 10001
 ADD src/main /code/src/main
 RUN ["mvn", "package"]
 
-CMD ["java", "-agentpath:/usr/local/YourKit-JavaProfiler-2019.8/bin/linux-x86-64/libyjpagent.so=port=10001,listen=all", "-jar", "target/worker-jar-with-dependencies.jar"]
+CMD ["java", "-agentpath:/usr/local/YourKit-JavaProfiler-2019.8/bin/linux-x86-64/libyjpagent.so=port=10001,listen=all,logdir=/tmp/yourkit/", "-jar", "target/worker-jar-with-dependencies.jar"]
