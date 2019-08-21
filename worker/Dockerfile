@@ -15,7 +15,7 @@ RUN ["mvn", "verify"]
 # Adding resource for doing Yourkit java profiling
 # ADD YourKit-JavaProfiler-2019.8-docker.zip /tmp/
 ADD YourKit-JavaProfiler-2019.8-docker.zip /tmp/
-RUN unzip /tmp/YourKit-JavaProfiler-2019.8.zip -d /usr/local && \
+RUN unzip /tmp/YourKit-JavaProfiler-2019.8-docker.zip -d /usr/local && \
   rm /tmp/YourKit-JavaProfiler-2019.8-docker.zip
 
 # add necessary library for yourkit
