@@ -13,15 +13,16 @@ RUN ["mvn", "dependency:resolve"]
 RUN ["mvn", "verify"]
 
 # Adding resource for doing Yourkit java profiling
-ADD YourKit-JavaProfiler-2019.8-docker.zip /tmp/
-RUN unzip /tmp/YourKit-JavaProfiler-2019.8-docker.zip -d /usr/local && \
+# ADD YourKit-JavaProfiler-2019.8-docker.zip /tmp/
+ADD YourKit-JavaProfiler-2019.8-b109.zip /tmp/
+RUN unzip /tmp/YourKit-JavaProfiler-2019.8-b109.zip -d /usr/local && \
   rm /tmp/YourKit-JavaProfiler-2019.8-docker.zip
 
 # add necessary library for yourkit
 RUN apk add --no-cache libc6-compat
 
 #expose port to listen on
-#EXPOSE 10001
+EXPOSE 10001
 
 # Adding source, compile and package into a fat jar
 ADD src/main /code/src/main
