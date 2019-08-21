@@ -16,7 +16,7 @@ RUN ["mvn", "verify"]
 # ADD YourKit-JavaProfiler-2019.8-docker.zip /tmp/
 ADD YourKit-JavaProfiler-2019.8-b109.zip /tmp/
 RUN unzip /tmp/YourKit-JavaProfiler-2019.8-b109.zip -d /usr/local && \
-  rm /tmp/YourKit-JavaProfiler-2019.8-docker.zip
+  rm /tmp/YourKit-JavaProfiler-2019.8-b109.zip
 
 # add necessary library for yourkit
 RUN apk add --no-cache libc6-compat
